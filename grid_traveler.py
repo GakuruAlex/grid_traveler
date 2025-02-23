@@ -5,7 +5,17 @@ def grid_traveler(row: int, column: int) -> int:
         return 0
     return grid_traveler(row - 1, column) + grid_traveler(row, column - 1)
 
-def mem_grid_traveler(row: int, column: int, memo = {(1,1): 1}):
+def mem_grid_traveler(row: int, column: int, memo = {(1,1): 1})-> int:
+    """_Find the number of ways of moving from top right to bottom left in a given grid, by moving only right or down_
+
+    Args:
+        row (int):__Number of rows in the grid_
+        column (int): _Number of columns in the grid_
+        memo (dict, optional): _Solutions to known grids_. Defaults to {(1,1): 1}.
+
+    Returns:
+        int: _Number of ways to get to bottom left_
+    """
     if row == 0 or column == 0:
         return 0
     if (row,column) in memo:
